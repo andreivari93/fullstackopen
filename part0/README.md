@@ -84,9 +84,9 @@
         participant browser
         participant server
     
-        Note right of browser: User writes a note and clicks Save
+        Note right of browser: USER clicks Save
     
-        Note right of browser: spa.js prevents the default form submit (no page reload), adds the note to the local notes list and re-renders the list
+        Note right of browser: spa.js prevents page reaload after click and adds the note to the local notes list with rerender
     
         browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
         Note right of browser: Request body is JSON: { "content": "NEW SPA NOTE", "date": "2026-09-27T..." }
@@ -95,6 +95,6 @@
         server-->>browser: 201 Created { "message": "note created" }
         deactivate server
     
-        Note right of browser: The page is not reloaded, no other requests are sent
+        Note right of browser: The page is not reloaded, data updated
 
 ```
